@@ -1,0 +1,58 @@
+﻿<Window x:Class="LinqReflection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LinqReflection"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+        Title="MainWindow"
+        Height="350"
+        SizeToContent="Width">
+    <Window.Resources>
+        <Style x:Key="hdrTxt" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontFamily"
+                    Value="Comic Sans MS" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Margin"
+                    Value="6" />
+        </Style>
+        <Style TargetType="HeaderedContentControl">
+            <Setter Property="FontFamily"
+                    Value="Consolas" />
+            <Setter Property="FontSize"
+                    Value="12" />
+            <Setter Property="Margin"
+                    Value="6" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <HeaderedContentControl Content="{Binding Path=ReferencedAssemblyNames}">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Style="{StaticResource hdrTxt}">GetReferencedAssemblies()</TextBlock>
+                    </HeaderedContentControl.Header>
+                </HeaderedContentControl>
+                <HeaderedContentControl Content="{Binding Path=Assemblies}">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Style="{StaticResource hdrTxt}">GetAssemblies()</TextBlock>
+                    </HeaderedContentControl.Header>
+                </HeaderedContentControl>
+                <HeaderedContentControl Content="{Binding Path=TemplateClasses}">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Style="{StaticResource hdrTxt}">Template Classes</TextBlock>
+                    </HeaderedContentControl.Header>
+                </HeaderedContentControl>
+                <HeaderedContentControl Content="{Binding Path=TemplateProperties}">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Style="{StaticResource hdrTxt}">Template Properties</TextBlock>
+                    </HeaderedContentControl.Header>
+                </HeaderedContentControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
